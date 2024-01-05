@@ -20,10 +20,6 @@ func main() {
 	}
 	fname := flag.Arg(0)
 
-	if !fileExists(fname) {
-		fmt.Printf("wc: %s: No such file or directory\n", fname)
-		os.Exit(1)
-	}
 	if givenFileIsADir(fname) {
 		fmt.Printf("wc: %s: Is a directory\n", fname)
 		os.Exit(1)

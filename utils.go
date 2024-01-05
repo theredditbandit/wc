@@ -8,14 +8,10 @@ import (
 func openFile(f string) *os.File {
 	file, err := os.Open(f)
 	if err != nil {
-		fmt.Println("Something went wrong: ", err)
+        fmt.Printf("err: %v\n", err)
+        os.Exit(1)
 	}
 	return file
-}
-
-func fileExists(f string) bool {
-
-	return true
 }
 
 func givenFileIsADir(f string) bool {
