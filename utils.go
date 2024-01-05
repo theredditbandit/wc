@@ -19,7 +19,10 @@ func fileExists(f string) bool {
 }
 
 func givenFileIsADir(f string) bool {
-	return false
+	file := openFile(f)
+	defer file.Close()
+	stat, _ := file.Stat()
+	return stat.IsDir()
 }
 
 func output(bc, lc, wc int, name string) {
