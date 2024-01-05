@@ -24,21 +24,25 @@ func main() {
 		fmt.Printf("wc: %s: Is a directory\n", fname)
 		os.Exit(1)
 	}
-
+	toPrint := 0 // how many values to print
 	var bc, cc, lc int
 	if *byteCount {
 		bc = getByteCount(fname)
+		toPrint++
 	}
 	if *charCount {
 		cc = getCharCount(fname)
+		toPrint++
 	}
 	if *lineCount {
 		lc = getLineCount(fname)
+		toPrint++
 	}
 	if !*byteCount && !*charCount && !*lineCount {
+		toPrint += 3
 		bc, cc, lc = getByteCount(fname), getCharCount(fname), getLineCount(fname)
 	}
 
-	output(bc, cc, lc, fname)
+	output(bc, cc, lc, toPrint, fname)
 
 }
