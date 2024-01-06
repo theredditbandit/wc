@@ -10,6 +10,8 @@ var (
 	byteCount = flag.Bool("c", false, "print the byte count")
 	charCount = flag.Bool("m", false, "print the char count")
 	lineCount = flag.Bool("l", false, "print the line count")
+	wordCount = flag.Bool("w", false, "print the word count")
+	debug     = flag.Bool("d", false, "print debug info")
 )
 
 func main() {
@@ -25,7 +27,7 @@ func main() {
 		os.Exit(1)
 	}
 	toPrint := 0 // how many values to print
-	var bc, cc, lc int
+	var bc, cc, lc, wc int
 	if *byteCount {
 		bc = getByteCount(fname)
 		toPrint++
@@ -38,11 +40,15 @@ func main() {
 		lc = getLineCount(fname)
 		toPrint++
 	}
-	if !*byteCount && !*charCount && !*lineCount {
-		toPrint += 3
-		bc, cc, lc = getByteCount(fname), getCharCount(fname), getLineCount(fname)
+	if *wordCount {
+		wc = getWordCount(fname)
+		toPrint++
+	}
+	if !*byteCount && !*charCount && !*lineCount && !*wordCount {
+		toPrint += 4
+		bc, cc, lc, wc = getByteCount(fname), getCharCount(fname), getLineCount(fname), getWordCount(fname)
 	}
 
-	output(bc, cc, lc, toPrint, fname)
+	output(bc, lc, cc, wc, toPrint, fname)
 
 }

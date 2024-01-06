@@ -20,12 +20,12 @@ func givenFileIsADir(f string) bool {
 	stat, _ := file.Stat()
 	return stat.IsDir()
 }
-
-func output(bc, lc, wc, toPrint int, name string) {
+// TODO : Pretty print this with some charmcli goodness ?
+func output(bc, lc, cc, wc, toPrint int, name string) {
 	if toPrint == 1 {
-		size := bc + lc + wc // since only one value to print rest will be 0
+		size := bc + lc + cc + wc // since only one value to print rest will be 0
 		fmt.Printf("%d %s\n", size, name)
 	} else {
-		fmt.Printf("%d %d %d %s\n", lc, wc, bc, name)
+		fmt.Printf("line count :%d\nchar count :%d\nbyte count :%d\nword count: %d\n  \t%s\n", lc, cc, bc, wc, name)
 	}
 }
