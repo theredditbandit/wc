@@ -12,6 +12,7 @@ var (
 	lineCount = flag.Bool("l", false, "print the line count")
 	wordCount = flag.Bool("w", false, "print the word count")
 	debug     = flag.Bool("d", false, "print debug info")
+	verbose   = flag.Bool("v", false, "print verbose output")
 )
 
 func main() {
