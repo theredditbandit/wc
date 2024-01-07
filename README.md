@@ -3,7 +3,7 @@
 
 A ~slightly~ significantly worse implementation of GNU [wc](https://www.gnu.org/software/coreutils/manual/html_node/wc-invocation.html#wc-invocation) in go. 
 
-# Performance
+# Performance comparison
 All the files mentioned below are present in the [`tests/`](https://github.com/theredditbandit/wc/tree/master/tests) directory
 
 ## GNU wc 
@@ -23,13 +23,7 @@ All the files mentioned below are present in the [`tests/`](https://github.com/t
 | les-miserables.txt 	| 3.3M 	| 0.051s          	| 99%       	| 0.04s         	| 0.01s           	|
 
 ## Conclusion 
-On average , my program is 163 times slower and consumes 26% more CPU to provide performance that is worse than the `wc` tool that ships with most GNU/linux.
-
-# Images 
-
-![comparison](https://github.com/theredditbandit/wc/assets/85390033/fc7742c0-acfa-4896-b1b6-2b5945536e0a)
-
-![verbose](https://github.com/theredditbandit/wc/assets/85390033/272f55ec-5587-4684-a30f-d2ed47bb74d1)
+On average , my program is **163 times slower** and consumes **26% more CPU** to provide performance that is worse than the `wc` tool that ships with most GNU/linux.
 
 # Strengths
  - identical results when compared with GNU `wc` over the test data.
@@ -39,6 +33,16 @@ On average , my program is 163 times slower and consumes 26% more CPU to provide
  - cannot read from stdin if no file is passed so `cat somefile.txt | gwc -l` won't work.
  - messy codebase
  - no automated testing
+ - slower
+
+
+# Images 
+
+![comparison](https://github.com/theredditbandit/wc/assets/85390033/fc7742c0-acfa-4896-b1b6-2b5945536e0a)
+
+![verbose](https://github.com/theredditbandit/wc/assets/85390033/272f55ec-5587-4684-a30f-d2ed47bb74d1)
+
+
 
 # TODO (maybe/eventually/will never get to it)
  - [ ] rewrite using simpler techniques.
